@@ -1,3 +1,5 @@
+console.log('js initilized'); // this never executes. 
+
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -51,21 +53,34 @@ function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
-// source: http://jsfiddle.net/9n8c5bun/
-function changeButtonStatus () {
-  $('form > input').keyup(function() {
 
+// event listeners
+// these don't work. In fact, nothing in this whole file works.  check line one.
+document.getElementById("brakeSpeed").addEventListener("keyup", changeButtonState);
+document.getElementById("meterSpeed").addEventListener("keyup", changeButtonState);
+
+var DEBUG = false;
+
+// source: http://jsfiddle.net/9n8c5bun/ (sorta)
+function changeButtonState() {
+    if(DEBUG) {
+        console.log("changeButtonState() called."); // never executes, regardless of DEBUG staus
+    }    
     var empty = false;
-    $('form > input').each(function() {
-      if ($(this).val() == '') {
-        empty = true;
-      }
+    
+    var $form_elements = $("#bmb").find(":input");  
+    
+    $form_elements.each(function() {                
+       if ($(this).val() == '') {
+           empty = true;
+       } 
     });
-
+    
     if (empty) {
-      $('#calculate').attr('disabled', 'disabled');
-    } else {
-      $('#calculate').removeAttr('disabled');
+        $('#calculate').attr('disabled', 'disabled');
+    }     
+    else {
+        $('#calculate').removeAttr('disabled');
     }
-  });
+
 }
