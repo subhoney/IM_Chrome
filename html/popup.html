@@ -1,18 +1,14 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
+
   <head>
-    <title>Gap Calculator</title>
-    <link rel="stylesheet" type="text/css" href="css/userinput.css">
+    <title>Gap Math!!</title>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
+      
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
@@ -20,25 +16,22 @@
         overflow: hidden;
         max-width: 400px;
       }
+
     </style>
 
     <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+      - JavaScript and HTML must be in separate files
      -->
-    <script src="js/popup.js"></script>
+    <script src="../js/popup.js"></script>
+    <script scr="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> <!-- same as in the fiddle -->
   </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
-    <form>
-        Brake Conveyor Speed:<br>
-        <input type="text" name="brakeSpeed"><br>
-        Meter Conveyor Speed:<br>
-        <input type="text" name="meterSpeed">
-    </form>
-  </body>
-</html>
 
+  <body>
+    Brake Speed:<br />
+    <input type="number" id="brakeSpeed" name="brakeSpeed" autofocus><br /> 
+    Meter Speed:<br />
+    <input type="number" id="meterSpee" name="meterSpeed"><br />
+    <input type="submit" id="calculate" value="Calculate" name="calculate" disabled="disabled">
+  </body>
+
+</html>
