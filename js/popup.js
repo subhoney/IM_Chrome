@@ -58,6 +58,7 @@ function renderStatus(statusText) {
 // these don't work. In fact, nothing in this whole file works.  check line one.
 document.getElementById("brakeSpeed").addEventListener("keyup", changeButtonState);
 document.getElementById("meterSpeed").addEventListener("keyup", changeButtonState);
+document.getElementById("calculate").addEventListener("click", calculateGap(brakeSpeed, meterSpeed, prodSize)); // is this how this works?
 
 var DEBUG = false;
 
@@ -82,5 +83,11 @@ function changeButtonState() {
     else {
         $('#calculate').removeAttr('disabled');
     }
+}
 
+function calculateGap (brake, meter, size) { // not sure how to pass the params in here....
+    if (meter == 0) {
+        return 0; 
+    }    
+    return ((brake/meter) - 1) * size;
 }
