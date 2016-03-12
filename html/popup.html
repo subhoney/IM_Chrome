@@ -3,21 +3,7 @@
 
   <head>
     <title>Gap Math!!</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/userinput.css">
 
     <!--
       - JavaScript and HTML must be in separate files
@@ -29,11 +15,11 @@
   <body>
     <form id="bmb">
       BrakeSpeed: <br />
-      <input type="number" id="brakeSpeed" name="brakeSpeed" /><br />
+      <input type="number" id="brakeSpeed" name="brakeSpeed" placeholder="feet per minute"/><br />
       MeterSpeed<br />
-      <input type="number" id="meterSpeed" name="meterSpeed" /><br />
+      <input type="number" id="meterSpeed" name="meterSpeed" placeholder="feet per minute"/><br />
       Product Length: 
-      <input type="number" id="prodSize" name="prodSize" /><br />
+      <input type="number" id="prodSize" name="prodSize" placeholder="inches" /><br />
       <input type="submit" id="calculate" value="Calculate" disabled="disabled" />
     </form>
   </body>
