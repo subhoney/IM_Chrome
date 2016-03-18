@@ -71,14 +71,35 @@ function renderStatus(statusText) {
 }
 
 // event listeners 
+// neither of these work!
 var calcButton = document.getElementById("calculate");
-$(calcButton).on('click', function() {
+$(calcButton).on('click', function() { // syntax?
 	alert("foo");
 }
 
+$('calculate').on('click', function() { // syntax?
+	alert('bar');
+}
+
 function calculateGap () { 
-	//var brakeSpeed = parseInt(document.getElementById("brakeSpeed").value);
-	alert("foo");
+	var brakeSpeed = document.getElementById('brakeSpeed').value;
+	var meterSPeed = document.getElementById('meterSpeed').value;
+	var prodSize = document.getElementById('prodSize').value;
+
+	// return zero gap if meterSpeed is zero 
+	if (meterSpeed === 0) {
+		alert("Meter belt not running."); 
+	} 
+	else {
+		var gap = ((brakeSpeed / meterSpeed ) - 1 ) * prodSize;
+		var pitch = gap + prodSize; 
+	}
+}
+	
+	// preach 
+	/* alert("Expected Gap: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + ". \n" + 			//newline
+			"Expected Pitch: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + prodSize + "."
+	);  */
 }
 
 // source: http://jsfiddle.net/9n8c5bun/ (sorta)
