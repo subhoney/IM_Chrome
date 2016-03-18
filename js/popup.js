@@ -9,7 +9,7 @@
  *   is found.
  */
 function getCurrentTabUrl(callback) {
-  // Query filter to be passed to chrome.tabs.query - see
+  // Query filter to be passed to chrome.tabs.query - see 
   // https://developer.chrome.com/extensions/tabs#method-query
   var queryInfo = {
     active: true,
@@ -38,65 +38,12 @@ function getCurrentTabUrl(callback) {
   });
 }
 
-var DEBUG = false;
-
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
 // event listeners 
-// neither of these work!
-var calcButton = document.getElementById("calculate");
-$(calcButton).on('click', function() { // syntax?
+var calcButton = document.getElementById('calculate');
+$('#calcButton').on('click', function() {
 	alert('foo');
 }
-
-$('calculate').on('click', function() { // syntax?
-	alert('bar');
-}
-
-function calculateGap () { 
-	var brakeSpeed = document.getElementById('brakeSpeed').value;
-	var meterSPeed = document.getElementById('meterSpeed').value;
-	var prodSize = document.getElementById('prodSize').value;
-
-	// return zero gap if meterSpeed is zero 
-	if (meterSpeed === 0) {
-		alert("Meter belt not running."); 
-		return;
-	} 
-	var gap = ((brakeSpeed / meterSpeed ) - 1 ) * prodSize;
-	var pitch = gap + prodSize; 
-	
-	//TODO: preach
-	/*
-	alert("Expected Gap: " + gap + ". \n + 
-		"Expected Pitch: " + pitch + "."
-	);
-	*/
-}
-
-
-// source: http://jsfiddle.net/9n8c5bun/ (sorta)
-/* function changeButtonState() {
-    if(DEBUG) {
-        alert("changeButtonState() called."); // never executes, regardless of DEBUG staus
-    }    
-    var empty = false;
-    
-    var $form_elements = $("#bmb").find(":input");  
-    
-    $form_elements.each(function() {                
-       if ($(this).val() == '') {
-           empty = true;
-       } 
-    });
-    
-    if (empty) {
-        $('#calculate').attr('disabled', 'disabled');
-    }     
-    else {
-        $('#calculate').removeAttr('disabled');
-    }
-}
- */
