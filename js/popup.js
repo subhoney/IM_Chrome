@@ -1,3 +1,19 @@
+Skip to content
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @subhoney
+ Unwatch 1
+  Star 0
+  Fork 0 subhoney/IM_Chrome
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathIM_Chrome/js/popup.js
+40b94f1  an hour ago
+@subhoney subhoney Working with EG in DML
+1 contributor
+RawBlameHistory     89 lines (73 sloc)  2.63 KB
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -54,9 +70,11 @@ function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
-// event listeners
+// event listeners 
 var calcButton = document.getElementById("calculate");
-calcButton.onclick = calculateGap();
+$(calcButton).on('click', function() {
+	alert("foo");
+}
 
 function calculateGap () { 
 	//var brakeSpeed = parseInt(document.getElementById("brakeSpeed").value);
@@ -86,5 +104,3 @@ function calculateGap () {
     }
 }
  */
- 
- // EG was here. 

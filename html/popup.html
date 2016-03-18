@@ -8,14 +8,15 @@
     <!--
       - JavaScript and HTML must be in separate files
      -->
-    <script src="../js/popup.js"></script>
     <script scr="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> <!-- same as in the fiddle -->
+	<script> "../js/popup.js"</script>
+	
   </head>
 
   <body>
     <form id="bmb">
       BrakeSpeed: <br />
-      <input type="text" id="brakeSpeed" name="brakeSpeed" placeholder="feet per minute"/><br />
+      <input type="number" id="brakeSpeed" name="brakeSpeed" placeholder="feet per minute"/><br />
       MeterSpeed<br />
       <input type="number" id="meterSpeed" name="meterSpeed" placeholder="feet per minute"/><br />
       Product Length: 
