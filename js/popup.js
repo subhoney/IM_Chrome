@@ -1,19 +1,3 @@
-Skip to content
-This repository  
-Search
-Pull requests
-Issues
-Gist
- @subhoney
- Unwatch 1
-  Star 0
-  Fork 0 subhoney/IM_Chrome
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathIM_Chrome/js/popup.js
-40b94f1  an hour ago
-@subhoney subhoney Working with EG in DML
-1 contributor
-RawBlameHistory     89 lines (73 sloc)  2.63 KB
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -52,20 +36,10 @@ function getCurrentTabUrl(callback) {
 
     callback(url);
   });
-
-  // Most methods of the Chrome extension APIs are asynchronous. This means that
-  // you CANNOT do something like this:
-  //
-  // var url;
-  // chrome.tabs.query(queryInfo, function(tabs) {
-  //   url = tabs[0].url;
-  // });
-  // alert(url); // Shows "undefined", because chrome.tabs.query is async.
 }
 
 var DEBUG = false;
 
- 
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
@@ -74,7 +48,7 @@ function renderStatus(statusText) {
 // neither of these work!
 var calcButton = document.getElementById("calculate");
 $(calcButton).on('click', function() { // syntax?
-	alert("foo");
+	alert('foo');
 }
 
 $('calculate').on('click', function() { // syntax?
@@ -89,18 +63,19 @@ function calculateGap () {
 	// return zero gap if meterSpeed is zero 
 	if (meterSpeed === 0) {
 		alert("Meter belt not running."); 
+		return;
 	} 
-	else {
-		var gap = ((brakeSpeed / meterSpeed ) - 1 ) * prodSize;
-		var pitch = gap + prodSize; 
-	}
-}
+	var gap = ((brakeSpeed / meterSpeed ) - 1 ) * prodSize;
+	var pitch = gap + prodSize; 
 	
-	// preach 
-	/* alert("Expected Gap: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + ". \n" + 			//newline
-			"Expected Pitch: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + prodSize + "."
-	);  */
+	//TODO: preach
+	/*
+	alert("Expected Gap: " + gap + ". \n + 
+		"Expected Pitch: " + pitch + "."
+	);
+	*/
 }
+
 
 // source: http://jsfiddle.net/9n8c5bun/ (sorta)
 /* function changeButtonState() {
