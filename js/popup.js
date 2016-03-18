@@ -1,5 +1,3 @@
-console.log('js initilized'); // this never executes. 
-
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -55,17 +53,15 @@ function renderStatus(statusText) {
 
 
 // event listeners
-// these don't work. In fact, nothing in this whole file works.  check line one.
-document.getElementById("brakeSpeed").addEventListener("keyup", changeButtonState);
-document.getElementById("meterSpeed").addEventListener("keyup", changeButtonState);
-document.getElementById("calculate").addEventListener("click", calculateGap(brakeSpeed, meterSpeed, prodSize)); // is this how this works?
+var calcButton = document.getElementById("calculate");
+calcButton.onclick = calculateGap();
 
 var DEBUG = false;
 
 // source: http://jsfiddle.net/9n8c5bun/ (sorta)
 function changeButtonState() {
     if(DEBUG) {
-        console.log("changeButtonState() called."); // never executes, regardless of DEBUG staus
+        alert("changeButtonState() called."); // never executes, regardless of DEBUG staus
     }    
     var empty = false;
     
@@ -85,9 +81,19 @@ function changeButtonState() {
     }
 }
 
-function calculateGap (brake, meter, size) { // not sure how to pass the params in here....
-    if (meter == 0) {
-        return 0; 
-    }    
-    return ((brake/meter) - 1) * size;
+function calculateGap () { 
+	// get user input
+	var brakeSpeed = document.getElementById("brakeSpeed").value;
+	
+	// return zero gap if meterSpeed is zero 
+	/* if (meterSpeed === 0) {
+		alert("Meter belt not running."); 
+
+	} */
+	
+	// preach 
+	/* alert("Expected Gap: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + ". \n" + 			//newline
+			"Expected Pitch: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + prodSize + "."
+	);  */
+	alert(brakeSpeed);
 }
