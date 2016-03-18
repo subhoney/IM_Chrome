@@ -86,3 +86,5 @@ function calculateGap () {
     }
 }
  */
+ 
+ // EG was here. 
