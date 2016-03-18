@@ -47,19 +47,24 @@ function getCurrentTabUrl(callback) {
   // alert(url); // Shows "undefined", because chrome.tabs.query is async.
 }
 
+var DEBUG = false;
+
+ 
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
-
 
 // event listeners
 var calcButton = document.getElementById("calculate");
 calcButton.onclick = calculateGap();
 
-var DEBUG = false;
+function calculateGap () { 
+	//var brakeSpeed = parseInt(document.getElementById("brakeSpeed").value);
+	alert("foo");
+}
 
 // source: http://jsfiddle.net/9n8c5bun/ (sorta)
-function changeButtonState() {
+/* function changeButtonState() {
     if(DEBUG) {
         alert("changeButtonState() called."); // never executes, regardless of DEBUG staus
     }    
@@ -80,20 +85,4 @@ function changeButtonState() {
         $('#calculate').removeAttr('disabled');
     }
 }
-
-function calculateGap () { 
-	// get user input
-	var brakeSpeed = document.getElementById("brakeSpeed").value;
-	
-	// return zero gap if meterSpeed is zero 
-	/* if (meterSpeed === 0) {
-		alert("Meter belt not running."); 
-
-	} */
-	
-	// preach 
-	/* alert("Expected Gap: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + ". \n" + 			//newline
-			"Expected Pitch: " + ((brakeSpeed / meterSpeed) - 1) * prodSize) + prodSize + "."
-	);  */
-	alert(brakeSpeed);
-}
+ */
