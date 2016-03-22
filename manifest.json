@@ -1,6 +1,6 @@
 {
  "manifest_version": 2,
- "version": "1.0.0",
+ "version": "1.1.0",
  
  "name": "Industrial Math", 
  "description": "A helper for manufacturing engineering of unknown scope.",
