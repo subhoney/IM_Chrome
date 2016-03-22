@@ -15,10 +15,13 @@
  },
  
  "browser_action": {
-    "default_popup": "html/popup.html"
- }, 
+    "default_popup": "html/popup.html",
+    "default_title": "Gap Calculator Pop-up"
+ },
  
  "permissions": [
+     "notifications",
+     "tabs",
      "activeTab",
      "https://ajax.googleapis.com/"
  ]
