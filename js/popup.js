@@ -44,6 +44,27 @@ function renderStatus(statusText) {
 
 //Button Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
+    $('.calcButton').prop('disabled',true);
+
+  document.addEventListener('keyup', function(){
+    //Extracts form data
+    var gap1 = document.getElementById('desiredGap1').value;
+    var brakeBelt1 = document.getElementById('brakeSpeed1').value;
+    var productDim1 = document.getElementById('prodSize1').value;
+    var gap2 = document.getElementById('desiredGap2').value;
+    var meterBelt1 = document.getElementById('meterSpeed1').value;
+    var productDim2 = document.getElementById('prodSize2').value;
+    var brakeBelt2 = document.getElementById('brakeSpeed2').value;
+    var meterBelt2 = document.getElementById('meterSpeed2').value;
+    var productDim3 = document.getElementById('prodSize3').value;
+
+    if (!gap1 && !brakeBelt1 && !productDim1) {
+      $('.calcButton').prop('disabled',true);
+    } else {
+      $('.calcButton').prop('disabled',false);
+    }    
+  });
+
   
   //Calculate button onclick listener
   var calcButton = document.getElementById('calculate');
@@ -63,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!!gap1 && !!brakeBelt1 && !!productDim1) {
       
       //If gap input is less than 0, set to 0 (gap less than 0 impossible)
-      if (gap1 < 0){gap1 = 0;}
+      if (gap1 < 0) {gap1 = 0;}
 
       //Calculations
       var expectedPitch = +gap1 + +productDim1;
