@@ -17,6 +17,12 @@ body {
     font-style: italic;
 }
 
+.user_input_form {
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+}
+
 .columns {
     -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
