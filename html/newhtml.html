@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+	<link rel="stylesheet" type="text/css" href="../css/userinupt.css">
+	
+	<script src="../js/jquery.js"></script> <!-- from CDN?--> 
+	<script src="../js/popup.js"></script>
+  
+	<title>Gap Math</title>
+  </head>
+  
+  <body>
+	<div id="wrapper" height="260" width="300">
+	  <header>
+		<img src="../icons/hh328.png" height="60" width="60" align="left">
+		<img src="../images/placeholder.png" height="37" width="190" align="right"> 
+	  </header>
+	  <div id="field_container">
+		<!--- all fields go here-->
+		<form id="user_input">
+		  <div id="top_row_input">
+			<h3>Brake Speed:</h3>
+		    <input class="user_input_form" type="number" id="brake_speed_input" placeholder="feet per min..." align="left">
+		    <h3>Meter Speed:</h3>
+			<input class="user_input_form" type="number" id="meter_speed_input" placeholder="feet per min..." align="right">
+		  </div>
+		  <div id="bottom_row_input">
+			<h3>Gap:</h3>
+		    <input class="user_input_form" type="number" id="gap_input" placeholder="inches..." align="left">
+		    <h3>Product Length:</h3>	
+		    <input class="user_input_form" type="number" id="product_length_input" placeholder="inches..." align="right">
+		  </div>
+		</form>
+	  </div>
+	  <footer>
+		<!--- all buttons go here-->
+	  </footer>
+	</div>
+  </body>
+
+</html>
