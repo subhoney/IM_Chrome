@@ -23,6 +23,10 @@ body {
   -webkit-border-radius:5px;
 }
 
+.calcButton{
+	
+}
+
 .columns {
     -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
@@ -51,6 +55,7 @@ h1 {
 	-webkit-column-span: all; /* Chrome, Safari, Opera */
     column-span: all;
 }
+
 h3 {
 	-webkit-column-span: all; /* Chrome, Safari, Opera */
     column-span: all;
