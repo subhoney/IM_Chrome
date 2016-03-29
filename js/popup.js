@@ -48,21 +48,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener('keyup', function(){
     //Extracts form data
-    var gap1 = document.getElementById('desiredGap1').value;
-    var brakeBelt1 = document.getElementById('brakeSpeed1').value;
-    var productDim1 = document.getElementById('prodSize1').value;
-    var gap2 = document.getElementById('desiredGap2').value;
-    var meterBelt1 = document.getElementById('meterSpeed1').value;
-    var productDim2 = document.getElementById('prodSize2').value;
-    var brakeBelt2 = document.getElementById('brakeSpeed2').value;
-    var meterBelt2 = document.getElementById('meterSpeed2').value;
-    var productDim3 = document.getElementById('prodSize3').value;
+    var gap = document.getElementById('desiredGap').value;
+    var brakeBelt = document.getElementById('brakeSpeed').value;
+    var productDim = document.getElementById('prodSize').value;
+    var meterBelt = document.getElementById('meterSpeed').value;
+    var inputCount = 4;
 
-    if (!gap1 && !brakeBelt1 && !productDim1) {
+    if (!!gap) {
+      inputCount = inputCount - 1;
+      var lastGap = 1;
+    } else if (!gap && lastGap == 1){
+      inputCount = inputCount + 1;
+      var lastGap = 0;
+    }
+
+    if (!!brakeBelt){
+      inputCount = inputCount - 1;
+      var lastBrakeBelt = 1;
+    } else if (!brakeBelt && lastBrakeBelt == 1){
+      inputCount = inputCount + 1;
+      var lastBrakeBelt = 0;
+    }
+
+    if (!!meterBelt){
+      inputCount = inputCount - 1;
+      var lastMeterBelt = 1;
+    } else if(!meterBelt && lastMeterBelt == 1){
+      inputCount = inputCount + 1;
+      var lastMeterBelt = 0;
+    }
+    
+    if (!!productDim){
+      inputCount = inputCount - 1;
+      var lastProduct = 1;
+    } else if(!productDim && lastProduct == 1){
+      inputCount = inputCount + 1;
+      var lastProduct = 0;
+    }
+
+    if (inputCount == 0){
+      alert("What do you need me for? You already know everything.")
       $('.calcButton').prop('disabled',true);
-    } else {
+    } else if (inputCount > 1){
+      $('.calcButton').prop('disabled',true);
+    } else if (inputCount == 1){
       $('.calcButton').prop('disabled',false);
-    }    
+    }       
   });
 
   
@@ -70,73 +101,89 @@ document.addEventListener('DOMContentLoaded', function() {
   var calcButton = document.getElementById('calculate');
   calcButton.addEventListener('click', function(){
     //Extracts form data
-    var gap1 = document.getElementById('desiredGap1').value;
-    var brakeBelt1 = document.getElementById('brakeSpeed1').value;
-    var productDim1 = document.getElementById('prodSize1').value;
-    var gap2 = document.getElementById('desiredGap2').value;
-    var meterBelt1 = document.getElementById('meterSpeed1').value;
-    var productDim2 = document.getElementById('prodSize2').value;
-    var brakeBelt2 = document.getElementById('brakeSpeed2').value;
-    var meterBelt2 = document.getElementById('meterSpeed2').value;
-    var productDim3 = document.getElementById('prodSize3').value;
+    var gap = document.getElementById('desiredGap').value;
+    var brakeBelt = document.getElementById('brakeSpeed').value;
+    var productDim = document.getElementById('prodSize').value;
+    var meterBelt = document.getElementById('meterSpeed').value;
 
     //Searches column 1 for all 3 items not null
-    if (!!gap1 && !!brakeBelt1 && !!productDim1) {
-      
-      //If gap input is less than 0, set to 0 (gap less than 0 impossible)
-      if (gap1 < 0) {gap1 = 0;}
+    if (!!gap && !!brakeBelt && !!productDim) {
 
-      //Calculations
-      var expectedPitch = +gap1 + +productDim1;
-      var BMBratio = 1/(expectedPitch/productDim1);
-      var meterSpeedCalc = brakeBelt1/BMBratio;
+        //If gap input is less than 0, set to 0 (gap less than 0 impossible)
+        if (gap < 0) {gap = 0;}
 
-      //Displays calculated values
-      document.getElementById('column1').value = "Pitch (inches)";
-      document.getElementById('column2').value = "Meter Speed (fpm)";
-      document.getElementById('column3').value = "BMB Ratio";
-      document.getElementById('output1').value = expectedPitch;
-      document.getElementById('output2').value = meterSpeedCalc;
-      document.getElementById('output3').value = BMBratio;
+        //Calculations
+        var expectedPitch = +gap + +productDim;
+        var BMBratio = 1/(expectedPitch/productDim);
+        var meterSpeedCalc = brakeBelt/BMBratio;
+
+        BMBrato = BMBratio.toString();
+        expectedPitch - expectedPitch.toString();
+        meterSpeedCalc = meterSpeedCalc.toString();
       
+        var values = ["BMB Ratio = " + BMBratio, "Pitch (inches) = " + expectedPitch, "Meter Speed (fpm) = " + meterSpeedCalc];
+
+        d3.select("body").selectAll("p")
+          .data(values)
+          .text(String)
+          .enter()
+            .append('p')
+            .text(String);
+
     //Searches column 2 for all 3 items not null
-    } else if (!!gap2 && !!meterBelt1 && !!productDim2) {
+    } else if (!!gap && !!meterBelt && !!productDim) {
 
-      //If gap input is less than 0, set to 0 (gap less than 0 impossible)
-      if (gap2 < 0){gap2 = 0;}
+        //If gap input is less than 0, set to 0 (gap less than 0 impossible)
+        if (gap < 0){gap = 0;}
 
-      //Calculations
-      var expectedPitch = +gap2 + +productDim2;
-      var BMBratio = 1/(expectedPitch/productDim2);
-      var brakeSpeedCalc = meterBelt1*BMBratio;
+        //Calculations
+        var expectedPitch = +gap + +productDim;
+        var BMBratio = 1/(expectedPitch/productDim);
+        var brakeSpeedCalc = meterBelt*BMBratio;
 
-      //Displays calculated values
-      document.getElementById('column1').value = "Pitch (inches)";
-      document.getElementById('column2').value = "Brake Speed (fpm)";
-      document.getElementById('column3').value = "BMB Ratio";
-      document.getElementById('output1').value = expectedPitch;
-      document.getElementById('output2').value = brakeSpeedCalc;
-      document.getElementById('output3').value = BMBratio;
+        BMBrato = BMBratio.toString();
+        expectedPitch - expectedPitch.toString();
+        brakeSpeedCalc = brakeSpeedCalc.toString();
+
+        var values = ["BMB Ratio = " + BMBratio, "Pitch (inches) = " + expectedPitch, "Brake Speed (fpm) = " + brakeSpeedCalc];
+
+        d3.select("body").selectAll("p")
+          .data(values)
+          .text(String)
+          .enter()
+            .append('p')
+            .text(String);
 
     //Seaches column 3 for all 3 items not null
-    } else if (!!brakeBelt2 && !!meterBelt2 && !!productDim3) {
+    } else if (!!brakeBelt && !!meterBelt && !!productDim) {
 
-      //Calculations
-      var BMBratio = brakeBelt2/meterBelt2;
-      var expectedPitch = 1/BMBratio*productDim3;
-      var expectedGap = expectedPitch - productDim3;
+        //Calculations
+        var BMBratio = brakeBelt/meterBelt;
+        var expectedPitch = 1/BMBratio*productDim;
+        var expectedGap = expectedPitch - productDim;
 
-      //If gap calculated less than 0, set to 0 (less than 0 gap impossible)
-      if (expectedGap < 0){expectedGap = 0;}
+        //If gap calculated less than 0, set to 0 (gap less than 0 impossible)
+        if (expectedGap < 0){expectedGap = "0";}
 
-      //Displays calculated values
-      document.getElementById('column1').value = "Gap (inches)";
-      document.getElementById('column2').value = "Pitch (inches)";
-      document.getElementById('column3').value = "BMB Ratio";
-      document.getElementById('output1').value = expectedGap;
-      document.getElementById('output2').value = expectedPitch;
-      document.getElementById('output3').value = BMBratio;
-    }    
+        BMBrato = BMBratio.toString();
+        expectedPitch - expectedPitch.toString();
+        expectedGap = expectedGap.toString();
+
+        var values = ["BMB Ratio = " + BMBratio, "Pitch (inches) = " + expectedPitch, "Gap (inches) = " + expectedGap];
+
+        d3.select("body").selectAll("p")
+          .data(values)
+          .text(String)
+          .enter()
+            .append('p')
+            .text(String);
+
+    //Searches the columns for a condition requiring no calculation
+    } else if (!!brakeBelt && !!meterBelt && !!gap){
+
+        alert("What do you need me for? You already know everything.")
+      
+    }
   });
 
   //Refresh button onclick listener

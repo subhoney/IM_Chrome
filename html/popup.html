@@ -3,58 +3,38 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="../css/userinput.css">
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
 
     <!--
       - JavaScript and HTML must be in separate files
      -->
+    <script src="../js/d3.js"></script>
     <script src="../js/jquery.js"></script> <!-- same as in the fiddle -->
 	<script src="../js/popup.js"></script>
 	
   </head>
 
   <body>
-  	<h1>Gap Calculator</h1>
-  	<hr>
-  		<h3>Fill out all items in a single column, then press "Calculate!"</h3>
+  		<img src="../icons/hh64.png" style="vertical-align:middle"/>&nbsp&nbsp&nbsp&nbsp<img src="../icons/Logo.png" style="vertical-align:middle"/>
+  		<hr>
+  		Enter any three then press "Calculate!"
+  		<hr>
   		<div class="columns">
     		<form id="bmb">
-    			<b>Meter Speed?</b><br /><hr>
     			Gap: <br />
-    			<input type="number" id="desiredGap1" name="desiredGap1" placeholder="inches"/><br />
+    			<input type="number" id="desiredGap" name="desiredGap" placeholder="inches"/><br />
     			BrakeSpeed: <br />
-      			<input type="number" id="brakeSpeed1" name="brakeSpeed1" placeholder="feet per minute"/><br />
+      			<input type="number" id="brakeSpeed" name="brakeSpeed" placeholder="feet per minute"/><br />
     			Product Length: 
-      			<input type="number" id="prodSize1" name="prodSize1" placeholder="inches"/><br />
-      		
-      			<b>Brake Speed?</b><br /><hr>
-      			Gap: <br />
-    			<input type="number" id="desiredGap2" name="desiredGap2" placeholder="inches"/><br />	
-      			MeterSpeed<br />
-      			<input type="number" id="meterSpeed1" name="meterSpeed1" placeholder="feet per minute"/><br />
-      			Product Length: 
-      			<input type="number" id="prodSize2" name="prodSize2" placeholder="inches"/><br />
-
-				<b>Gap?</b><br /><hr>
-      			BrakeSpeed: <br />
-      			<input type="number" id="brakeSpeed2" name="brakeSpeed2" placeholder="feet per minute"/><br />
-      			MeterSpeed<br />
-      			<input type="number" id="meterSpeed2" name="meterSpeed2" placeholder="feet per minute"/><br />
-      			Product Length: 
-      			<input type="number" id="prodSize3" name="prodSize3" placeholder="inches"/><br />
+      			<input type="number" id="prodSize" name="prodSize" placeholder="inches"/><br />	
+      			MeterSpeed:<br />
+      			<input type="number" id="meterSpeed" name="meterSpeed" placeholder="feet per minute"/><br />
 			</form>
 
       		<h1><button id="calculate" class="calcButton">Calculate!</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="refresh">Refresh!</button></h1>
 			
 		</div>
 		<hr>
-		<h2>Calculated Gap Data</h2>
-		<div class="columns">		
-			<input type="text" id="column1" name="column1" placeholder="Result"/>
-      		<input type="number" id="output1" name="output1"/>
-      		<input type="text" id="column2" name="column2" placeholder="Result"/>
-      		<input type="number" id="output2" name="output2"/>
-      		<input type="text" id="column3" name="column3" placeholder="Result"/>
-      		<input type="number" id="output3" name="output3"/>
-    	</div>
+
   </body>
 </html>
